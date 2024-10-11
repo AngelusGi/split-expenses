@@ -1,26 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Expense</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Add New Expense</h1>
-    <form action="" method="POST">
-        <label>Description</label><br>
-        <input type="text" name="description" required><br><br>
+    <div class="container mt-5">
+        <h1 class="text-center">Add New Expense</h1>
         
-        <label>Amount</label><br>
-        <input type="number" step="0.01" name="amount" required><br><br>
+        <form action="" method="POST" class="form-group">
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" class="form-control" name="description" required>
+            </div>
 
-        <label>Payer</label><br>
-        <input type="text" name="payer" required><br><br>
+            <div class="form-group">
+                <label for="amount">Amount</label>
+                <input type="number" step="0.01" class="form-control" name="amount" required>
+            </div>
 
-        <label>Split With (comma separated names)</label><br>
-        <input type="text" name="split_with" required><br><br>
+            <div class="form-group">
+                <label for="payer">Payer</label>
+                <input type="text" class="form-control" name="payer" required>
+            </div>
 
-        <input type="submit" value="Add Expense">
-    </form>
-    <br>
-    <a href="{{ url_for('index') }}">Back to Expenses</a>
+            <div class="form-group">
+                <label for="split_with">Split With (comma separated names)</label>
+                <input type="text" class="form-control" name="split_with" required>
+            </div>
+
+            <div class="text-center">
+                <input type="submit" class="btn btn-success" value="Add Expense">
+            </div>
+        </form>
+
+        <div class="text-center mt-3">
+            <a href="{{ url_for('index') }}" class="btn btn-secondary">Back to Expenses</a>
+        </div>
+    </div>
 </body>
 </html>

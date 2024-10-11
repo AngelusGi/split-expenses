@@ -1,23 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Split Expenses</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Expense Split</h1>
-    <table>
-        <tr>
-            <th>Payer</th>
-            <th>Amount Owed</th>
-        </tr>
-        {% for payer, amount in split_data.items() %}
-        <tr>
-            <td>{{ payer }}</td>
-            <td>{{ amount }}</td>
-        </tr>
-        {% endfor %}
-    </table>
+    <div class="container mt-5">
+        <h1 class="text-center">Expense Split</h1>
+        
+        <table class="table table-bordered table-hover">
+            <thead class="thead-light">
+                <tr>
+                    <th>Payer</th>
+                    <th>Amount Owed</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for payer, amount in split_data.items() %}
+                <tr>
+                    <td>{{ payer }}</td>
+                    <td>${{ amount }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
 
-    <a href="{{ url_for('index') }}">Back to Expenses</a>
+        <div class="text-center">
+            <a href="{{ url_for('index') }}" class="btn btn-primary">Back to Expenses</a>
+        </div>
+    </div>
 </body>
 </html>

@@ -1,31 +1,49 @@
 <!DOCTYPE html>
-<html>
+<!-- Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap JS (optional for interactive components like modals) -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travel Expenses</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>All Expenses</h1>
-    <table>
-        <tr>
-            <th>Description</th>
-            <th>Amount</th>
-            <th>Payer</th>
-            <th>Split With</th>
-        </tr>
-        {% for expense in expenses %}
-        <tr>
-            <td>{{ expense[1] }}</td>
-            <td>{{ expense[2] }}</td>
-            <td>{{ expense[3] }}</td>
-            <td>{{ expense[4] }}</td>
-        </tr>
-        {% endfor %}
-    </table>
+    <div class="container mt-5">
+        <h1 class="text-center">All Expenses</h1>
 
-    <h2>Total Expense: {{ total }}</h2>
+        <table class="table table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Description</th>
+                    <th>Amount</th>
+                    <th>Payer</th>
+                    <th>Split With</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for expense in expenses %}
+                <tr>
+                    <td>{{ expense[1] }}</td>
+                    <td>${{ expense[2] }}</td>
+                    <td>{{ expense[3] }}</td>
+                    <td>{{ expense[4] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
 
-    <a href="{{ url_for('add_expense') }}">Add New Expense</a>
-    <br>
-    <a href="{{ url_for('split_expense') }}">View Split</a>
+        <h2>Total Expense: ${{ total }}</h2>
+
+        <div class="text-center">
+            <a href="{{ url_for('add_expense') }}" class="btn btn-primary">Add New Expense</a>
+            <a href="{{ url_for('split_expense') }}" class="btn btn-secondary">View Split</a>
+        </div>
+    </div>
 </body>
 </html>
