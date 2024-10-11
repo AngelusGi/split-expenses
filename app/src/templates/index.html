@@ -5,6 +5,9 @@
 <!-- Bootstrap JS (optional for interactive components like modals) -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+<!-- Custom CSS -->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -41,8 +44,8 @@
         <h2>Total Expense: ${{ total }}</h2>
 
         <div class="text-center">
-            <a href="{{ url_for('add_expense') }}" class="btn btn-primary">Add New Expense</a>
-            <a href="{{ url_for('split_expense') }}" class="btn btn-secondary">View Split</a>
+            <a href="{{ url_for('add_expense') }}" class="btn btn-primary btn-block btn-lg">Add New Expense</a>
+            <a href="{{ url_for('split_expense') }}" class="btn btn-secondary btn-block btn-lg">View Split</a>
         </div>
     </div>
 </body>
