@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Split Expenses</title>
+</head>
+<body>
+    <h1>Expense Split</h1>
+    <table>
+        <tr>
+            <th>Payer</th>
+            <th>Amount Owed</th>
+        </tr>
+        {% for payer, amount in split_data.items() %}
+        <tr>
+            <td>{{ payer }}</td>
+            <td>{{ amount }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="{{ url_for('index') }}">Back to Expenses</a>
+</body>
+</html>

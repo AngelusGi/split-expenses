@@ -1,0 +1,48 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: Flask",
+            "type": "debugpy",
+            "program": "${workspaceFolder}/app/src/app.py",
+            "request": "launch",
+            "env": {
+                "FLASK_APP": "app.py",
+                "FLASK_DEBUG": "1",
+                "LOGGER_NAME": "split_expenses",
+                "LOG_LEVEL_DEBUG": "True"
+            },
+            "args": [
+                "run",
+                "--no-debugger",
+                "--no-reload"
+            ],
+            "jinja": true,
+            "justMyCode": true
+        },
+        {
+            "name": "Terraform Init",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/iac",
+            "console": "integratedTerminal",
+            "args": ["init"]
+        },
+        {
+            "name": "Terraform Plan",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/iac",
+            "console": "integratedTerminal",
+            "args": ["plan"]
+        },
+        {
+            "name": "Terraform Apply",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/iac",
+            "console": "integratedTerminal",
+            "args": ["apply"]
+        }   
+    ]
+}

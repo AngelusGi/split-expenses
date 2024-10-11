@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Travel Expenses</title>
+</head>
+<body>
+    <h1>All Expenses</h1>
+    <table>
+        <tr>
+            <th>Description</th>
+            <th>Amount</th>
+            <th>Payer</th>
+            <th>Split With</th>
+        </tr>
+        {% for expense in expenses %}
+        <tr>
+            <td>{{ expense[1] }}</td>
+            <td>{{ expense[2] }}</td>
+            <td>{{ expense[3] }}</td>
+            <td>{{ expense[4] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Total Expense: {{ total }}</h2>
+
+    <a href="{{ url_for('add_expense') }}">Add New Expense</a>
+    <br>
+    <a href="{{ url_for('split_expense') }}">View Split</a>
+</body>
+</html>
